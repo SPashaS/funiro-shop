@@ -1,1 +1,8 @@
 // Заголовки, общие БЄМ блоки и проче...
+.footer-title {
+    font-weight: bold;
+    font-weight: 700;
+    line-height: math.div(29,24);
+    @include adaptiveValue("font-size",24,20 );
+    color: #000;
+}
