@@ -1,3 +1,240 @@
 //====================================================================================================
+.page {
+    // .page__main-slider
+    &__main-slider {
+    }
+}
+.main-slider {
+    background: #FCF8F3;
+    // .main-slider__container
+    &__container {
+        position: relative;
+        @media (min-width:$tablet){
+            &::before{
+                content:'';
+                background: #F9F1E7;
+                position: absolute;
+                top: 0;
+                width: 100vw;
+                right: rem(376);
+                height: 100%;
+            }
+        }
+    }
+
+    // .main-slider__body
+    &__body {
+        padding: rem(140) 0px 0px 0px;
+        position: relative;
+        z-index: 2;
+        @media (max-width:$tablet){
+            padding: rem(80) 0px 0px 0px;
+        }
+        @media (max-width:$mobile){
+            padding: rem(50) 0px 0px 0px; 
+        }
+        @media (min-width:$tablet){
+            display: flex; 
+        }
+
+    }
+
+    // .main-slider__content
+    &__content {
+        align-self: flex-start;
+        flex: 0 0 percent(494,1240);
+        @include adaptiveValue("margin-bottom",80,15);
+        @media (max-width:$tablet){
+            margin: 0 rem(-15);
+        }
+    }
+
+    // .main-slider__slider
+    &__slider {
+        flex: 1 1 auto;
+        min-width: 0;
+        align-self: flex-end;
+        @media (min-width:$tablet){
+            padding: 0px 0px 0px rem(32);
+        }
+    }
+}
+.content-main-slider {
+    position: relative;
+    z-index: 5;
+    padding-left: rem(15);
+    padding-right: rem(15);
+    @include adaptiveValue("padding-top",60,15);
+    @include adaptiveValue("padding-bottom",60,15);
+    background: rgba(255, 255, 255, 0.72);
+    @media (min-width:$tablet){
+        @include adaptiveValue("padding",60,1); 
+    }
+    // .content-main-slider__title
+    &__title {
+        @include adaptiveValue("font-size",56,24);
+        line-height: math.div(67,56);
+        font-weight: 700;
+        &:not(:last-child) {
+            margin-bottom: em(16,56);
+        }
+    }
+
+    // .content-main-slider__text
+
+    &__text {
+        color: $grayColor;
+        @include adaptiveValue("font-size",20,16);
+        font-weight: 500;
+        line-height: math.div(30,20);
+        &:not(:last-child) {
+            margin-bottom: em(48,20);
+        }
+    }
+
+    // .content-main-slider__button
+    &__button {
+        @include adaptiveValue("min-height",78,45);
+        @include adaptiveValue("font-size",20,16);
+        font-weight: 600;
+        background: $orangeColor;
+        color: #fff;
+        width: 100%;
+        @media (any-hover: hover){
+            &:hover{
+                background: #ce743c;
+            }
+        }
+    }
+}
+.slider-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @media (max-width:$tablet){
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+    // .slider-main__controls
+    &__controls {
+        margin: 0px 0px rem(20) 0px;
+        align-self: stretch;
+        @media (max-width:$tablet){
+            margin: rem(10) 0px rem(20) 0px;
+        }
+    }
+
+    // .slider-main__slider
+    &__slider {
+        &.swiper {
+            overflow: visible;
+        }
+        @media (min-width:$tablet){
+            @include adaptiveValue("width",934,290); 
+        }
+        @media (max-width:$tablet){
+            margin: 0 rem(-15);
+        }
+    }
+
+    // .slider-main__swiper
+    &__swiper {
+
+    }
+
+    // .slider-main__slide
+    &__slide {
+        position: relative;
+    }
+
+    // .slider-main__image
+
+    &__image {
+        padding: 0px 0px 59.1% 0px;
+    }
+
+    // .slider-main__content
+
+    &__content {
+        min-width: rem(295);
+        max-height: rem(300);
+        overflow: auto;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.9);
+        @include adaptiveValue("padding",24,15);
+        @media (min-width:$mobile){
+            position: absolute;
+            min-width: rem(350);
+            @include adaptiveValue("right",40,0);
+            @include adaptiveValue("bottom",40,0);
+        }
+        /* Если браузер поддреживает backdrop-filter*/
+        @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(31px);
+        }
+    }
+
+    // .slider-main__title
+
+    &__title {
+        @include adaptiveValue("font-size",28,22);
+        font-weight: 600;
+        line-height: math.div(34,28);
+        &:not(:last-child) {
+            margin: 0px 0px em(4,28) 0px;
+        }
+    }
+
+    // .slider-main__text
+
+    &__text {
+        color: $darkGrayColor;
+        line-height: math.div(24,16);
+        font-weight: 500;
+        &:not(:last-child) {
+            margin: 0px 0px em(8,16) 0px;
+        }
+    }
+
+    // .slider-main__price
+
+    &__price {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 600;
+        line-height: math.div(30,20);
+        @include adaptiveValue("font-size",20,16);
+        &::before{
+            margin: 0px 0px 0px rem(10);
+            font-size: rem(13);
+        }
+    }
+}
+.controls-slider-main {
+    display: flex;
+    align-items: center;
+    // .controls-slider-main__dotts
+    &__dotts {
+        flex: 1 1 auto;
+        @media (min-width:$tablet){
+            padding: 0px rem(20) 0px 0px;            
+        }
+        @media (max-width:$tablet){
+            justify-content: center;
+        }
+    }
+    // .controls-slider-main__arrows
+    &__arrows {
+        @media (max-width:$tablet){
+            display: none; 
+        }
+    }
+}
+
 
 //====================================================================================================

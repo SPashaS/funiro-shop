@@ -52,7 +52,6 @@ $mobileSmall: em(479.98); // Телефоны S
 @import "base/null";
 
 body {
-	background-color: #F9F1E7;
 	// Скролл заблокирован
 	.lock & {
 		overflow: hidden;
