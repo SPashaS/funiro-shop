@@ -1,4 +1,19 @@
 // Заголовки, общие БЄМ блоки и проче...
+
+
+.title {
+    @include adaptiveValue("font-size",40,24);
+    line-height: math.div(48,40);
+    font-weight: 700;
+    align-items: center;
+}
+._flyImage.-ibg {
+    opacity: 1;
+    position: fixed;
+    z-index: 99;
+    transition: all 1s ease 0s;
+}
+
 .footer-title {
     font-weight: bold;
     font-weight: 700;
@@ -59,6 +74,17 @@
     transition: all 0.3s ease 0s;
     min-height: rem(48);
     transition: background-color 0.3s ease 0s;
+    // .button_white
+    &_white {
+        color: $orangeColor;
+        background-color: #fff;
+        @media (any-hover: hover){
+            &:hover{
+                background-color: $orangeColor;
+                color: #fff;
+            }
+        }
+    }
 }
 
 
