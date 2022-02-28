@@ -4,19 +4,39 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-
+	min-height: rem(40);
+	@media (max-width:$mobile){
+		min-height: rem(5); 
+	}
+	&._scroll {
+		.header__wrapper {
+			background-color: rgba(255, 255, 255, 0.8);
+			@media (any-hover: hover){
+				&:hover{
+					background-color: rgba(255, 255, 255, 0.9);
+				}
+			}
+			.header__body {
+				min-height: rem(50);
+				@media (min-width:$tablet){
+					min-height: rem(70); 
+				}
+			}
+		}
+	}
 	&__wrapper {
 		position: fixed;
 		width: 100%;
 		left: 0;
 		top: 0;
-		z-index: 49;
+		z-index: 50;
 	}
 
 	&__container {
 	}
 
 	&__body {
+		transition: min-height 0.3s ease 0s;
 		display: flex;
 		align-items: center;
 		padding: 5px 0;
