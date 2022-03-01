@@ -4,12 +4,13 @@
     &__main-slider {
     }
     // .page__advantages
-
     &__advantages {
     }
     // .page__products
-
     &__products {
+    }
+     // .page__rooms
+    &__rooms {
     }
 }
 .main-slider {
@@ -74,7 +75,12 @@
     padding-right: rem(15);
     @include adaptiveValue("padding-top",60,15);
     @include adaptiveValue("padding-bottom",60,15);
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.9);
+    /* Если браузер поддреживает backdrop-filter*/
+    @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(31px);
+    }
     @media (min-width:$tablet){
         @include adaptiveValue("padding",60,1); 
     }
@@ -512,6 +518,242 @@
     }
 }
 //====================================================================================================
+
+.rooms {
+    background: #FCF8F3;
+    @include adaptiveValue("padding-top",44,30);
+    @include adaptiveValue("padding-bottom",44,30);
+    // .rooms__container
+    &__container {
+        @media (min-width:$tablet){
+            display: flex;
+        }
+    }
+
+    // .rooms__body
+    &__body {
+        flex: 0 0 percent(465,1200);
+        position: relative;
+        z-index: 5;
+        align-self: center;
+        @media (min-width:$tablet){
+            @include adaptiveValue("padding-right",80,30);
+        }
+        @media (max-width:$tablet){
+            margin: 0px 0px rem(30) 0px;
+        }
+    }
+
+    // .rooms__title
+    &__title {
+        text-align: left;
+        &:not(:last-child) {
+            margin-bottom: em(8,40);
+        }
+    }
+
+    // .rooms__text
+    &__text {
+        font-weight: 500;
+        line-height: math.div(24,16);
+        color: $darkGrayColor;
+        &:not(:last-child) {
+            margin-bottom: rem(24);
+        }
+    }
+
+    // .rooms__button
+    &__button {
+        background: $orangeColor;
+        color: #fff;
+        min-width: rem(180);
+        @media (any-hover: hover){
+            &:hover{
+                background-color: #e2884f;
+            }
+        }
+    }
+
+    // .rooms__slider
+    &__slider {
+        flex: 1 1 auto;
+        min-width: 0;
+        align-self: flex-start;
+        @media (max-width:$mobileSmall){
+            margin: 0 rem(-15); 
+        }
+    }
+}
+
+.slider-rooms {
+
+    // .slider-rooms__slider
+
+    &__slider {
+        &::before{
+            content:'';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100vw;
+            background: #FCF8F3;
+            z-index: 2;
+            transform: translate(-100%, 0);
+        }
+        &.swiper {
+            overflow: visible;
+            position: relative;
+        }
+    }
+
+    // .slider-rooms__swiper
+
+    &__swiper {
+    }
+
+    // .slider-rooms__slide
+
+    &__slide {
+        width: rem(372);
+        position: relative;
+        overflow: hidden;
+        @include adaptiveValue("height",585,400);
+        &.swiper-slide-active {
+            .slider-rooms__image-ibg {
+                height: 100%;
+            }
+        }
+        @media (max-width:$mobileSmall){
+            width: 100%;
+        }
+    }
+
+    // .slider-rooms__image-ibg
+    &__image-ibg {
+        transition: height 0.8s ease 0s;
+        height: 100%;
+        @media (min-width:$mobile){
+            height: 83%;
+        }
+    }
+
+    // .slider-rooms__content
+    &__content {
+        position: absolute;
+        color: inherit;
+        max-width: rem(240);
+        @include adaptiveValue("left",24,15);
+        @include adaptiveValue("bottom",24,15);
+        @include adaptiveValue("padding",32,15);
+        background: rgba(255, 255, 255, 0.9);
+        /* Если браузер поддреживает backdrop-filter*/
+        @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(31px);
+        }
+        &::before{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(100%,0);
+            width: rem(48);
+            height: rem(48);
+            background-color: $orangeColor;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    // .slider-rooms__label
+
+    &__label {
+    }
+
+    // .slider-rooms__title
+
+    &__title {
+        color: $mainColor;
+        @include adaptiveValue("font-size",28,24);
+        line-height: math.div(34,28);
+        font-weight: 600;
+    }
+
+    // .slider-rooms__arrows
+    &__arrows {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        transform: translate(0,-50%);
+        width: calc(100% - rem(48));
+        left: rem(24);
+        z-index: 5;
+        justify-content: space-between;
+        @media (min-width:$pc){
+            width: calc(100% + rem(48));
+            left: rem(-24);
+        }
+    }
+
+    // .slider-rooms__dotts
+
+    &__dotts {
+        @media (min-width:$mobile){
+            position: absolute;
+            bottom: rem(30);
+            width: 100%;
+            left: rem(396);
+        }
+        @media (max-width:$mobile){
+            justify-content: center;
+            padding: rem(15) 0px 0px 0px; 
+        }
+
+    }
+}
+
+.label-slider {
+    display: grid;
+    grid-template-columns: auto rem(27) auto;
+    gap: rem(8);
+    align-items: center;
+    justify-content: start;
+    &:not(:last-child) {
+        margin-bottom: rem(8);
+    }
+    color: $darkGrayColor;
+    // .label-slider__number
+    &__number {
+    }
+    // .label-slider__line
+    &__line {
+        height: rem(1);
+        background-color: $darkGrayColor;
+    }
+    // .label-slider__text
+    &__text {
+    }
+}
+
+.slider-arrow {
+
+    // .slider-arrow_white
+
+    &_white {
+    }
+
+    // .slider-arrow_prev
+
+    &_prev {
+    }
+
+    // .slider-arrow_next
+
+    &_next {
+    }
+}
 
 //====================================================================================================
 

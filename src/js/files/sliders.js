@@ -106,6 +106,69 @@ function initSliders() {
 			}
 		});
 	}
+
+
+	if (document.querySelector('.slider-rooms__slider')) {
+		new Swiper('.slider-rooms__slider', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination],
+			/*
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+			observer: true,
+			observeParents: true,
+			slidesPerView: 'auto',
+			spaceBetween: 24,
+			autoHeight: true,
+			speed: 800,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			loop: true,
+			loopAdditionalSlides: 5,
+			preloadImages: false,
+			parallax: true,
+			//lazy: true,
+			// Dotts
+			pagination: {
+				el: '.slider-rooms__dotts',
+				clickable: true,
+			},
+			// Arrows
+			navigation: {
+				nextEl: '.slider-rooms .slider-arrow_next',
+				prevEl: '.slider-rooms .slider-arrow_prev',
+			},
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			on: {
+
+			}
+		});
+	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
 function initSlidersScroll() {
