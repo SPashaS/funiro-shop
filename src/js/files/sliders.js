@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, Parallax } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -49,7 +49,7 @@ function initSliders() {
 		new Swiper('.slider-main__slider', {
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation, Pagination],
+			modules: [Navigation, Pagination, Parallax],
 			/*
 			effect: 'fade',
 			autoplay: {
@@ -112,7 +112,7 @@ function initSliders() {
 		new Swiper('.slider-rooms__slider', {
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation, Pagination],
+			modules: [Navigation, Pagination, Parallax],
 			/*
 			effect: 'fade',
 			autoplay: {
@@ -164,6 +164,63 @@ function initSliders() {
 				},
 			},
 			*/
+			on: {
+
+			}
+		});
+	}
+
+	if (document.querySelector('.slider-tips__slider')) {
+		new Swiper('.slider-tips__slider', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination, Parallax],
+			/*
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+			observer: true,
+			observeParents: true,
+			slidesPerView: 3,
+			spaceBetween: 32,
+			// autoHeight: true,
+			speed: 800,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			loop: true,
+			loopAdditionalSlides: 5,
+			preloadImages: false,
+			parallax: true,
+			//lazy: true,
+			// Dotts
+			pagination: {
+				el: '.slider-tips__dotts',
+				clickable: true,
+			},
+			// Arrows
+			navigation: {
+				nextEl: '.slider-tips .slider-arrow_next',
+				prevEl: '.slider-tips .slider-arrow_prev',
+			},
+			
+			breakpoints: {
+				320: {
+					slidesPerView: 1.1,
+					spaceBetween: 15,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 32,
+				},
+			},
+			
 			on: {
 
 			}

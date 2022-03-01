@@ -5,7 +5,7 @@
     @include adaptiveValue("font-size",40,24);
     line-height: math.div(48,40);
     font-weight: 700;
-    align-items: center;
+    text-align: center;
 }
 ._flyImage.-ibg {
     opacity: 1;

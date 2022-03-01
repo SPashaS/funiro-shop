@@ -12,6 +12,9 @@
      // .page__rooms
     &__rooms {
     }
+    // .page__tips
+    &__tips {
+    }
 }
 .main-slider {
     background: #FCF8F3;
@@ -737,25 +740,119 @@
     }
 }
 
-.slider-arrow {
 
-    // .slider-arrow_white
+//====================================================================================================
 
-    &_white {
+.tips {
+    @include adaptiveValue("padding-top",44,30);
+    @include adaptiveValue("padding-bottom",44,30);
+    // .tips__container
+
+    &__container {
     }
 
-    // .slider-arrow_prev
-
-    &_prev {
+    // .tips__title
+    &__title {
     }
 
-    // .slider-arrow_next
+    // .tips__slider
 
-    &_next {
+    &__slider {
     }
 }
 
-//====================================================================================================
+.slider-tips {
+    position: relative;
+    // .slider-tips__slider
+    &__slider {
+        &.swiper {
+            @include adaptiveValue("margin-left",-32,-15);
+            @include adaptiveValue("margin-right",-32,-15);
+            @include adaptiveValue("padding",32,15);
+        }
+    }
+
+    // .slider-tips__swiper
+    &__swiper {
+    }
+
+    // .slider-tips__slide
+
+    &__slide {
+        display: flex;
+        flex-direction: column;
+        &:hover {
+            box-shadow: 0 0 rem(32) rgba(97, 97, 97, 0.2);
+        }
+    }
+
+    // .slider-tips__image-ibg
+    &__image-ibg {
+        padding: 0px 0px percent(251,391) 0px;
+    }
+
+    // .slider-tips__content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: rem(15);
+        flex: 1 1 auto;
+        align-items: flex-start;
+    }
+
+    // .slider-tips__title
+
+    &__title {
+        flex: 1 1 auto;
+        color: inherit;
+        font-weight: 600;
+        line-height: math.div(29,24);
+        @include adaptiveValue("font-size",24,18);
+        &:not(:last-child) {
+            margin-bottom: em(8,24);
+        }
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover){
+            &:hover{
+                color: $orangeColor;
+
+            }
+        }
+    }
+
+    // .slider-tips__text
+
+    &__text {
+    }
+
+    // .slider-tips__arrows
+
+    &__arrows {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        transform: translate(0,-50%);
+        width: calc(100% - rem(48));
+        left: rem(24);
+        z-index: 5;
+        justify-content: space-between;
+        @media (min-width:$pc){
+            width: calc(100% + rem(48));
+            left: rem(-24);
+        }
+        @media (max-width:$mobile){
+            display: none; 
+        }
+    }
+
+    // .slider-tips__dotts
+
+    &__dotts {
+        @include adaptiveValue("padding-top",8,0);
+        justify-content: center;
+    }
+}
+
 
 //====================================================================================================
 
