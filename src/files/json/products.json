@@ -5,7 +5,12 @@
             "url": "#",
             "title": "Grifo",
             "text": "Night lamp",
-            "labels":"",
+            "labels": [
+                {
+                    "type": "new",
+                    "value": "New"
+                }
+            ],
             "image": "05.jpg",
             "price": "1.500.000",
             "priceOld": "",
@@ -21,15 +26,11 @@
                 {
                     "type": "sale",
                     "value": "-50%"
-                },
-                {
-                    "type": "new",
-                    "value": "New"
                 }
             ],
             "image": "06.jpg",
             "price": "150.000",
-            "priceOld": "",
+            "priceOld": "300.000",
             "shareUrl": "",
             "likeUrl": ""
         },

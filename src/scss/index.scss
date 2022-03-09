@@ -15,6 +15,9 @@
     // .page__tips
     &__tips {
     }
+    // .page__furniture
+    &__furniture {
+    }
 }
 .main-slider {
     background: #FCF8F3;
@@ -166,7 +169,7 @@
 
     // .slider-main__image
 
-    &__image {
+    &__image-ibg {
         padding: 0px 0px 59.1% 0px;
     }
 
@@ -766,9 +769,17 @@
     // .slider-tips__slider
     &__slider {
         &.swiper {
-            @include adaptiveValue("margin-left",-32,-15);
-            @include adaptiveValue("margin-right",-32,-15);
-            @include adaptiveValue("padding",32,15);
+            margin-left: rem(-32);
+            margin-right: rem(-32);
+            padding: rem(32);
+            @media (max-width:$mobile){
+                margin-left: rem(-15);
+                margin-right: rem(-15);
+                padding: rem(15);
+            }
+            // @include adaptiveValue("margin-left",-32,-15);
+            // @include adaptiveValue("margin-right",-32,-15);
+            // @include adaptiveValue("padding",32,15);
         }
     }
 
@@ -781,6 +792,7 @@
     &__slide {
         display: flex;
         flex-direction: column;
+        transition: all 0.3s ease 0s;
         &:hover {
             box-shadow: 0 0 rem(32) rgba(97, 97, 97, 0.2);
         }
@@ -853,8 +865,149 @@
     }
 }
 
-
 //====================================================================================================
+
+.furniture {
+    @include adaptiveValue("padding-bottom",85,40);
+    // .furniture__container
+
+    &-container {
+
+    }
+
+    // .furniture__subtitle
+    &__subtitle {
+        @include adaptiveValue("font-size",20,16);
+        line-height: math.div(30,20);
+        color: $darkGrayColor;
+        font-weight: 600;
+        &:not(:last-child) {
+            margin-bottom: em(8,20);
+        }
+        text-align: center;
+    }
+
+    // .furniture__title
+    &__title {
+        margin: 0px 0px em(32,40) 0px;
+    }
+
+    // .furniture__body
+    &__body {
+        position: relative;
+        @media (any-hover: none){
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+
+    // .furniture__items
+    &__items {
+        display: grid;
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+        align-items: center;
+        gap: rem(16);
+        @media (any-hover: hover){
+            justify-content: center;
+        }
+    }
+
+    // .furniture__column
+    &__column {
+        display: flex;
+        align-items: center;
+        margin: 0 rem(-8);
+        &:first-child {
+            justify-content: flex-end;
+        }
+        @media (min-width:$mobile){
+            flex-wrap: wrap;
+        }
+    }
+
+    // .furniture__row
+    &__row {
+        display: inline-grid;
+        padding: 0 rem(8);
+        gap: rem(16);
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+        &:not(:last-child) {
+            margin-bottom: rem(16);
+        }
+    }
+}
+
+.row-furniture {
+    // .row-furniture_left-top
+    &_left-top {
+        justify-content: center;
+        align-items: center;
+        @media (min-width:$mobile){
+            justify-content: end;
+            align-items: end;
+        }
+        
+    }
+
+    // .row-furniture_left-bottom
+
+    &_left-bottom {
+        justify-content: center;
+        align-items: center;
+        @media (min-width:$mobile){
+            justify-content: end;
+            align-items: start;
+        }
+        
+    }
+
+    // .row-furniture_center
+    &_center {
+        display: block;
+    }
+
+    // .row-furniture_right-top
+    &_right-top {
+        align-items: center;
+        @media (min-width:$mobile){
+            align-items: end;
+        }
+
+        
+    }
+
+    // .row-furniture_right-bottom
+
+    &_right-bottom {
+        align-items: center;
+        @media (min-width:$mobile){
+            align-items: start;
+        }
+        
+    }
+
+    // .row-furniture__item
+    &__item {
+        @media (any-hover: hover){
+            img {
+                transition: filter 0.8s ease 0s;
+                filter: grayscale(1);
+            }
+            &:hover{
+                img {
+                    filter: grayscale(0);
+                }
+            }
+        }
+    }
+}
+
+.lg-container .lg-backdrop {
+    background-color: #000000c7;
+}
+
 
 //====================================================================================================
 
