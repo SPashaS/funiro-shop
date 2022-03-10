@@ -36,7 +36,7 @@ import '@scss/libs/gallery/lightgallery.scss';
 // import '@scss/libs/gallery/lightgallery-bundle.scss';
 
 // Запуск
-const galleries = document.querySelectorAll('.furniture__row');
+const galleries = document.querySelectorAll('[data-gallery]');
 
 if (galleries.length) {
 	let galleryItems = [];
@@ -45,8 +45,10 @@ if (galleries.length) {
 				gallery,
 				galleryClass: lightGallery(gallery, {
 					// plugins: [lgZoom, lgThumbnail],
+					selector: '.row-furniture__item',
 					licenseKey: '7EC452A9-0CFD441C-BD984C7C-17C8456E',
 					speed: 500,
+					download: false,
 					// thumbnail: true,
 				})
 			})
@@ -55,20 +57,3 @@ if (galleries.length) {
 	flsModules.gallery = galleryItems;
 }
 
-
-//Gallery
-// let gallery = document.querySelectorAll('._gallery');
-// if (gallery) {
-// 	gallery_init();
-// }
-// function gallery_init() {
-// 	for (let index = 0; index < gallery.length; index++) {
-// 		const el = gallery[index];
-// 		lightGallery(el, {
-// 			licenseKey: '7EC452A9-0CFD441C-BD984C7C-17C8456E',
-// 			counter: false,
-// 			selector: 'a',
-// 			download: false
-// 		});
-// 	}
-// }
