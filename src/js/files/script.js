@@ -311,7 +311,7 @@ window.onload = function () {
 				furniture.classList.remove('_init');
 			}
 		}
-		furniture.addEventListener("mousemove", {passive: true}, function (e) {
+		furniture.addEventListener("mousemove", function (e) {
 			// Получение ширины
 			const furnitureWidth = furniture.offsetWidth;
 
@@ -325,7 +325,7 @@ window.onload = function () {
 				requestAnimationFrame(setMouseGalleryStyle);
 				furniture.classList.add('_init');
 			}
-		});
+		}, {passive: true},);
 	}
 
 }
