@@ -5,7 +5,7 @@ import { flsModules } from "./modules.js";
 
 
 window.onload = function () {
-    document.addEventListener('click', documentActions);
+    document.addEventListener('click', documentActions, {passive: true});
 
     //Actions делегирование события click
     function documentActions(e) {
@@ -280,7 +280,8 @@ window.onload = function () {
 
 	// Furniture Gallery
 	const furniture = document.querySelector('.furniture__body');
-	if (furniture && !isMobile.any()) {
+	if (furniture && !isMobile.any() && window.innerWidth > 768) {
+		console.log(window.innerWidth > 768)
 		const furnitureItems = document.querySelector('.furniture__items');
 		const furnitureColumn = document.querySelectorAll('.furniture__column');
 

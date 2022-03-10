@@ -899,6 +899,10 @@
             overflow: auto;
             -webkit-overflow-scrolling: touch;
         }
+        @media (max-width:$tablet){
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
     }
 
     // .furniture__items
