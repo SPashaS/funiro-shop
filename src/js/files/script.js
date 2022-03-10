@@ -5,7 +5,7 @@ import { flsModules } from "./modules.js";
 
 
 window.onload = function () {
-    document.addEventListener('click', documentActions, {passive: true});
+    document.addEventListener('click', documentActions);
 
     //Actions делегирование события click
     function documentActions(e) {
@@ -280,8 +280,7 @@ window.onload = function () {
 
 	// Furniture Gallery
 	const furniture = document.querySelector('.furniture__body');
-	if (furniture && !isMobile.any() && window.innerWidth > 768) {
-		console.log(window.innerWidth > 768)
+	if (furniture && !isMobile.any()) {
 		const furnitureItems = document.querySelector('.furniture__items');
 		const furnitureColumn = document.querySelectorAll('.furniture__column');
 
@@ -312,7 +311,7 @@ window.onload = function () {
 				furniture.classList.remove('_init');
 			}
 		}
-		furniture.addEventListener("mousemove", function (e) {
+		furniture.addEventListener("mousemove", {passive: true}, function (e) {
 			// Получение ширины
 			const furnitureWidth = furniture.offsetWidth;
 

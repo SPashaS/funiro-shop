@@ -466,6 +466,9 @@
         @media (any-hover: none){
             padding: rem(15) 0px 0px 0px;
         }
+        .touch & {
+            padding: rem(15) 0px 0px 0px;
+        }
         @media (any-hover: hover){
             opacity: 0;
             visibility: hidden;
