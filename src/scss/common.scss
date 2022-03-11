@@ -28,6 +28,9 @@
     column-gap: rem(8)
 }
 .slider-arrow {
+    @media (max-width:$tablet){
+        display: none; 
+    }
     pointer-events: auto;
     border-radius: 50%;
     height: rem(48);
@@ -65,7 +68,6 @@
         }
     }
 }
-
 .button {
     display: inline-flex;
     justify-content: center;

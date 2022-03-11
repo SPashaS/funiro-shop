@@ -918,6 +918,9 @@
         @media (any-hover: hover){
             justify-content: center;
         }
+        .touch & {
+            justify-content: start;
+        }
     }
 
     // .furniture__column

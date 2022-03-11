@@ -24,7 +24,7 @@ body {
 body {
 	color: $mainColor;
 	line-height: 1;
-	font-family: $fontFamily;
+	font-family: $fontFamily, sans-serif;
 	font-size: $fontSize;
 	//text-rendering: optimizeLegibility;
 	-ms-text-size-adjust: 100%;
